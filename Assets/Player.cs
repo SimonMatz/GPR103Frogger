@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public bool playerCanMove = false; //Can the player currently move?
     public bool isOnPlatform = false;
     public bool isInWater = false;
+    public bool isInHome = false;
 
     private GameManager myGameManager; //A reference to the GameManager in the scene.
 
@@ -78,6 +79,11 @@ public class Player : MonoBehaviour
             {
                 isInWater = true;
             }
+            else if (collision.transform.tag == "Home")
+            {
+                isInHome = true;
+                myGameManager.UpdateScore(50);
+            }
         }
         
     }
@@ -97,7 +103,11 @@ public class Player : MonoBehaviour
             {
                 isInWater = false;
             }
-            
+            else if (collision.transform.tag == "Home")
+            {
+                isInHome = false;
+            }
+
         }
 
     }
