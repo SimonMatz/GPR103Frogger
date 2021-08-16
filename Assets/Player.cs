@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public bool isInWater = false;
     public bool isInHome = false;
 
+    public GameObject frogInHome;
+
     private GameManager myGameManager; //A reference to the GameManager in the scene.
 
     // Start is called before the first frame update
@@ -83,6 +85,10 @@ public class Player : MonoBehaviour
             {
                 isInHome = true;
                 myGameManager.UpdateScore(50);
+                Instantiate(frogInHome, transform.position, Quaternion.identity);
+                transform.Translate(new Vector2(0, -8));
+                
+
             }
         }
         
