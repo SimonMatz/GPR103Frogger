@@ -11,7 +11,11 @@ public class GameManager : MonoBehaviour
     [Header("Scoring")]
     public int currentScore = 0; //The current score in this round.
     public int highScore = 0; //The highest score achieved either in this session or over the lifetime of the game.
+    public int playerTotalLives = 3; //Players total possible lives.
+    public int playerLivesRemaining; //PLayers actual lives remaining.
+    public bool playerIsAlive = true;
     public TMP_Text currentScoreUI;
+    public TMP_Text currentLivesUI;
 
     [Header("Playable Area")]
     public float levelConstraintTop; //The maximum positive Y value of the playable space.
@@ -28,7 +32,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateScore(-currentScore);
-    
+        UpdateLives(-playerTotalLives);
+        playerLivesRemaining = playerTotalLives;
+
     }
 
     // Update is called once per frame
@@ -41,5 +47,15 @@ public class GameManager : MonoBehaviour
     {
         currentScore += scoreAmount;
         currentScoreUI.text = currentScore.ToString();
+    }
+    public void UpdateLives(int livesAmount)
+    {
+        playerLivesRemaining -= livesAmount;
+        currentLivesUI.text = playerLivesRemaining.ToString();
+
+        if (playerLivesRemaining <= 0)
+        {
+            playerIsAlive = false;
+        }
     }
 }

@@ -69,7 +69,9 @@ public class Player : MonoBehaviour
         {
             if (collision.transform.GetComponent<Vehicle>() != null)
             {
+                myGameManager.UpdateLives(1);
                 KillPlayer();
+                
             }
             else if (collision.transform.GetComponent<Platform>() != null)
             {
@@ -86,8 +88,8 @@ public class Player : MonoBehaviour
                 isInHome = true;
                 myGameManager.UpdateScore(50);
                 Instantiate(frogInHome, transform.position, Quaternion.identity);
-                transform.Translate(new Vector2(0, -8));
-                
+                transform.position = new Vector3(-0, -4, 0);
+
 
             }
         }
@@ -121,8 +123,10 @@ public class Player : MonoBehaviour
     void KillPlayer()
     {
         GetComponent<SpriteRenderer>().enabled = false;
-        playerIsAlive = false;
-        playerCanMove = false;
+        transform.position = new Vector3(-0, -4, 0);
+        GetComponent<SpriteRenderer>().enabled = true;
+        //playerIsAlive = false;
+        //playerCanMove = false;
     }
 
 }
