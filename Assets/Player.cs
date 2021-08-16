@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y <myGameManager.levelConstraintTop)
         {
             transform.Translate(new Vector2(0, 1));
-            myGameManager.UpdateScore(1);
+            myGameManager.UpdateScore(10);
         }
        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > myGameManager.levelConstraintBottom)
         {
@@ -58,7 +58,11 @@ public class Player : MonoBehaviour
         {
             if (isInWater == true && isOnPlatform == false)
             {
+                
                 KillPlayer();
+                
+                print("minus 1 life");
+
             }
         }
     }
@@ -78,11 +82,13 @@ public class Player : MonoBehaviour
                 transform.SetParent(collision.transform);
                 isOnPlatform = true;
                 
+
             }
             else if (collision.transform.tag == "Water")
             {
                 isInWater = true;
             }
+
             else if (collision.transform.tag == "Home")
             {
                 isInHome = true;
@@ -90,8 +96,15 @@ public class Player : MonoBehaviour
                 Instantiate(frogInHome, transform.position, Quaternion.identity);
                 transform.position = new Vector3(-0, -4, 0);
 
-
             }
+
+            else if (collision.transform.tag == "HouseFull")
+            {
+                isInWater = false;
+                myGameManager.UpdateScore(-50);
+                //transform.position = new Vector3(-0, -4, 0);
+            }
+            
         }
         
     }
@@ -125,8 +138,7 @@ public class Player : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         transform.position = new Vector3(-0, -4, 0);
         GetComponent<SpriteRenderer>().enabled = true;
-        //playerIsAlive = false;
-        //playerCanMove = false;
+        
     }
 
 }
