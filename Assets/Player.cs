@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public bool house4Full = false;
     public bool house5Full = false;
 
+
     public GameObject frogInHome;
 
     public GameObject explosionFX;
@@ -84,6 +85,14 @@ public class Player : MonoBehaviour
                 isInWater = false;
                 isOnPlatform = false;
             }
+        }
+
+        if(house1Full == true && house2Full == true)
+        {
+            //&& house3Full == true && house4Full == true && house5Full == true
+            myGameManager.UpdateScore(5000);
+            house2Full = false;
+            myGameManager.gameOver = true;
         }
 
     }

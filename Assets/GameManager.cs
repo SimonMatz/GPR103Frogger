@@ -9,11 +9,14 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [Header("Scoring")]
-    public int currentScore = 0; //The current score in this round.
+    public float currentScore = 0; //The current score in this round.
     public int highScore = 0; //The highest score achieved either in this session or over the lifetime of the game.
     public int playerTotalLives = 10; //Players total possible lives.
     public int playerLivesRemaining; //PLayers actual lives remaining.
+    public bool gameOver = false;
     public bool playerIsAlive = true;
+
+
     public TMP_Text currentScoreUI;
     public TMP_Text currentLivesUI;
     public TMP_Text timeLeftUI;
@@ -47,7 +50,13 @@ public class GameManager : MonoBehaviour
             
             timeLeftUI.text = Mathf.Round(gameTimeRemaining).ToString();
         }
-        
+        if (gameTimeRemaining > 0 && gameOver == true && playerIsAlive == true)
+        {          
+            UpdateScore(Mathf.Round(gameTimeRemaining) * 20);
+            playerIsAlive = false;          
+            
+        }
+
         else if(gameTimeRemaining <= 0)
         {
             playerIsAlive = false;
@@ -55,10 +64,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateScore(int scoreAmount)
+    public void UpdateScore(float scoreAmount)
     {
         currentScore += scoreAmount;
         currentScoreUI.text = currentScore.ToString();
+        
     }
     public void UpdateLives(int livesAmount)
     {
