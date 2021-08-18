@@ -15,9 +15,17 @@ public class Player : MonoBehaviour
    
     public bool playerIsAlive = true; //Is the player currently alive?
     public bool playerCanMove = false; //Can the player currently move?
+
     public bool isOnPlatform = false;
     public bool isInWater = false;
-    public bool isInHome = false;
+    
+
+    //variable to remember if house is already full
+    public bool house1Full = false;
+    public bool house2Full = false;
+    public bool house3Full = false;
+    public bool house4Full = false;
+    public bool house5Full = false;
 
     public GameObject frogInHome;
 
@@ -26,6 +34,7 @@ public class Player : MonoBehaviour
 
     public AudioClip jumpSound;
     public AudioClip deathSound;
+    public AudioClip splashSound;
 
     private GameManager myGameManager; //A reference to the GameManager in the scene.
 
@@ -70,8 +79,8 @@ public class Player : MonoBehaviour
             if (isInWater == true && isOnPlatform == false)
             {
                 Instantiate(waterSplashFX, transform.position, Quaternion.identity);
-                KillPlayer();
-                print("minus 1 life");
+                GetComponent<AudioSource>().PlayOneShot(splashSound);
+                KillPlayer();             
                 isInWater = false;
                 isOnPlatform = false;
             }
@@ -107,19 +116,64 @@ public class Player : MonoBehaviour
 
             else if (collision.transform.tag == "Home")
             {
-                isInHome = true;
-                myGameManager.UpdateScore(50);
-                Instantiate(frogInHome, transform.position, Quaternion.identity);
-                transform.position = new Vector3(-0, -4, 0);
+                
+                if (house1Full == false)
+                {
+                    myGameManager.UpdateScore(50);
+                }
+                house1Full = true;
+                Instantiate(frogInHome, transform.position = new Vector3(0, 4, 0), Quaternion.identity);
+                transform.position = new Vector3(0, -4, 0);
+                
 
             }
-
-            else if (collision.transform.tag == "HouseFull")
+            else if (collision.transform.tag == "Home2")
             {
                 
-                myGameManager.UpdateScore(-50);
-                //transform.position = new Vector3(-0, -4, 0);
+
+                if (house2Full == false)
+                {
+                    myGameManager.UpdateScore(50);
+                }
+                house2Full = true;
+                Instantiate(frogInHome, transform.position = new Vector3(2, 4, 0), Quaternion.identity);
+                transform.position = new Vector3(0, -4, 0);
+
             }
+            else if (collision.transform.tag == "Home3")
+            {               
+                if (house3Full == false)
+                {
+                    myGameManager.UpdateScore(50);
+                }
+                house3Full = true;
+                Instantiate(frogInHome, transform.position = new Vector3(4, 4, 0), Quaternion.identity);
+                transform.position = new Vector3(0, -4, 0);
+
+            }
+            else if (collision.transform.tag == "Home4")
+            {              
+                if (house4Full == false)
+                {
+                    myGameManager.UpdateScore(50);
+                }
+                house4Full = true;
+                Instantiate(frogInHome, transform.position = new Vector3(-2, 4, 0), Quaternion.identity);
+                transform.position = new Vector3(0, -4, 0);
+
+            }
+            else if (collision.transform.tag == "Home5")
+            {              
+                if (house5Full == false)
+                {
+                    myGameManager.UpdateScore(50);
+                }
+                house5Full = true;
+                Instantiate(frogInHome, transform.position = new Vector3(-4, 4, 0), Quaternion.identity);
+                transform.position = new Vector3(0, -4, 0);
+
+            }
+
             
         }
 
@@ -141,10 +195,7 @@ public class Player : MonoBehaviour
             {
                 isInWater = false;
             }
-            else if (collision.transform.tag == "Home")
-            {
-                isInHome = false;
-            }
+            
 
         }
 
