@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     public GameObject explosionFX;
     public GameObject waterSplashFX;
 
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
+
     private GameManager myGameManager; //A reference to the GameManager in the scene.
 
     // Start is called before the first frame update
@@ -38,19 +41,23 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y <myGameManager.levelConstraintTop)
         {
             transform.Translate(new Vector2(0, 1));
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
             myGameManager.UpdateScore(0);
         }
        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > myGameManager.levelConstraintBottom)
         {
             transform.Translate(new Vector2(0, -1));
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > myGameManager.levelConstraintLeft)
         {
             transform.Translate(new Vector2(-1, 0));
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < myGameManager.levelConstraintRight)
         {
             transform.Translate(new Vector2(1, 0));
+            GetComponent<AudioSource>().PlayOneShot(jumpSound);
         }
 
     }
@@ -80,6 +87,7 @@ public class Player : MonoBehaviour
             {
                 //myGameManager.UpdateLives(1);
                 Instantiate(explosionFX, transform.position, Quaternion.identity);
+                GetComponent<AudioSource>().PlayOneShot(deathSound);
                 KillPlayer();
                 
             }
