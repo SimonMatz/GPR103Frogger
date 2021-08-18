@@ -27,22 +27,24 @@ public class Player : MonoBehaviour
     public bool house4Full = false;
     public bool house5Full = false;
 
-
+    //instantiate
     public GameObject frogInHome;
-
     public GameObject explosionFX;
     public GameObject waterSplashFX;
 
+    //audio files
     public AudioClip jumpSound;
     public AudioClip deathSound;
     public AudioClip splashSound;
 
     private GameManager myGameManager; //A reference to the GameManager in the scene.
+    private HomeGuests myHomeGuests; //A reference to the GameManager in the scene.
 
     // Start is called before the first frame update
     void Start()
     {
         myGameManager = GameObject.FindObjectOfType<GameManager>();
+        myHomeGuests = GameObject.FindObjectOfType<HomeGuests>();
     }
 
     // Update is called once per frame
@@ -87,9 +89,9 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(house1Full == true && house2Full == true)
+        if(house1Full == true && house2Full == true && house3Full == true && house4Full == true && house5Full == true)
         {
-            //&& house3Full == true && house4Full == true && house5Full == true
+            
             myGameManager.UpdateScore(5000);
             house2Full = false;
             myGameManager.gameOver = true;
@@ -183,7 +185,15 @@ public class Player : MonoBehaviour
 
             }
 
-            
+            if (collision.transform.tag == "Fly")
+            {
+
+                myGameManager.UpdateScore(33);
+                Destroy(collision.gameObject);
+
+            }
+
+
         }
 
     }
