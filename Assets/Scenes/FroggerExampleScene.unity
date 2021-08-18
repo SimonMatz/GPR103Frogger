@@ -1402,7 +1402,7 @@ MonoBehaviour:
   levelConstraintLeft: -4
   levelConstraintRight: 4
   isGameRunning: 0
-  totalGameTime: 60
+  totalGameTime: 10
   gameTimeRemaining: 0
 --- !u!4 &840484406
 Transform:

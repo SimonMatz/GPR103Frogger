@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
 
     public GameObject frogInHome;
 
+    public GameObject explosionFX;
+    public GameObject waterSplashFX;
+
     private GameManager myGameManager; //A reference to the GameManager in the scene.
 
     // Start is called before the first frame update
@@ -35,7 +38,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y <myGameManager.levelConstraintTop)
         {
             transform.Translate(new Vector2(0, 1));
-            myGameManager.UpdateScore(10);
+            myGameManager.UpdateScore(0);
         }
        else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > myGameManager.levelConstraintBottom)
         {
@@ -56,15 +59,17 @@ public class Player : MonoBehaviour
     {
         if (playerIsAlive == true)
         {
+
             if (isInWater == true && isOnPlatform == false)
             {
-                
+                Instantiate(waterSplashFX, transform.position, Quaternion.identity);
                 KillPlayer();
-                
                 print("minus 1 life");
-
+                isInWater = false;
+                isOnPlatform = false;
             }
         }
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -73,7 +78,8 @@ public class Player : MonoBehaviour
         {
             if (collision.transform.GetComponent<Vehicle>() != null)
             {
-                myGameManager.UpdateLives(1);
+                //myGameManager.UpdateLives(1);
+                Instantiate(explosionFX, transform.position, Quaternion.identity);
                 KillPlayer();
                 
             }
@@ -85,8 +91,10 @@ public class Player : MonoBehaviour
 
             }
             else if (collision.transform.tag == "Water")
-            {
+            {              
                 isInWater = true;
+                
+
             }
 
             else if (collision.transform.tag == "Home")
@@ -100,14 +108,15 @@ public class Player : MonoBehaviour
 
             else if (collision.transform.tag == "HouseFull")
             {
-                isInWater = false;
+                
                 myGameManager.UpdateScore(-50);
                 //transform.position = new Vector3(-0, -4, 0);
             }
             
         }
-        
+
     }
+   
 
     void OnTriggerExit2D(Collider2D collision)
     {
@@ -135,10 +144,14 @@ public class Player : MonoBehaviour
 
     void KillPlayer()
     {
+       
+
+        //Instantiate(explosionFX, transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;
         transform.position = new Vector3(-0, -4, 0);
         GetComponent<SpriteRenderer>().enabled = true;
-        
+        myGameManager.UpdateLives(1);
+
     }
 
 }

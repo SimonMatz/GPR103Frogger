@@ -43,8 +43,9 @@ public class GameManager : MonoBehaviour
     {
         if (gameTimeRemaining > 0)
         {
-            gameTimeRemaining -= Time.deltaTime;
-            timeLeftUI.text = gameTimeRemaining.ToString();
+           gameTimeRemaining -= Time.deltaTime;
+            
+            timeLeftUI.text = Mathf.Round(gameTimeRemaining).ToString();
         }
         
         else if(gameTimeRemaining <= 0)
