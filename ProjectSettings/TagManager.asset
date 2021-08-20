@@ -7,6 +7,11 @@ TagManager:
   - Water
   - Home
   - HouseFull
+  - Home2
+  - Home3
+  - Home4
+  - Home5
+  - Fly
   layers:
   - Default
   - TransparentFX

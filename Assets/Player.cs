@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShortcutManagement;
+//using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 /// <summary>
@@ -222,7 +222,7 @@ public class Player : MonoBehaviour
 
     void KillPlayer()
     {
-       
+        playerIsAlive = false;
 
         //Instantiate(explosionFX, transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;
@@ -230,6 +230,10 @@ public class Player : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = true;
         myGameManager.UpdateLives(1);
 
+        if (playerIsAlive == false)
+        {
+            myGameManager.GameOver(false);
+        }
     }
 
 }

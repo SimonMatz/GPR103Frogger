@@ -16,10 +16,12 @@ public class GameManager : MonoBehaviour
     public bool gameOver = false;
     public bool playerIsAlive = true;
 
-
+    [Header("UI")]
     public TMP_Text currentScoreUI;
     public TMP_Text currentLivesUI;
     public TMP_Text timeLeftUI;
+    public TMP_Text GameOverMessage;
+    public UIManager myUIManager;
 
     [Header("Playable Area")]
     public float levelConstraintTop; //The maximum positive Y value of the playable space.
@@ -32,9 +34,17 @@ public class GameManager : MonoBehaviour
     public float totalGameTime; //The maximum amount of time or the total time avilable to the player.
     public float gameTimeRemaining; //The current elapsed time
 
+
+    public void Awake()
+    {
+        myUIManager = FindObjectOfType<UIManager>();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
         UpdateScore(-currentScore);
         UpdateLives(-playerTotalLives);
         playerLivesRemaining = playerTotalLives;
@@ -80,4 +90,18 @@ public class GameManager : MonoBehaviour
             playerIsAlive = false;
         }
     }
+
+    public void GameOver(bool win)
+    {
+        if (win == true)
+        {
+            GameOverMessage.text = "You win!";
+        }
+        else
+        {
+            GameOverMessage.text = "You lose!";
+        }
+        myUIManager.GameOverWindow.SetActive(true);
+    }
+
 }
