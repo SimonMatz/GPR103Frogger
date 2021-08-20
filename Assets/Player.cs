@@ -50,28 +50,30 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y <myGameManager.levelConstraintTop)
+        if (playerCanMove == true)
         {
-            transform.Translate(new Vector2(0, 1));
-            GetComponent<AudioSource>().PlayOneShot(jumpSound);
-            myGameManager.UpdateScore(0);
+            if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < myGameManager.levelConstraintTop)
+            {
+                transform.Translate(new Vector2(0, 1));
+                GetComponent<AudioSource>().PlayOneShot(jumpSound);
+                myGameManager.UpdateScore(0);
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > myGameManager.levelConstraintBottom)
+            {
+                transform.Translate(new Vector2(0, -1));
+                GetComponent<AudioSource>().PlayOneShot(jumpSound);
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > myGameManager.levelConstraintLeft)
+            {
+                transform.Translate(new Vector2(-1, 0));
+                GetComponent<AudioSource>().PlayOneShot(jumpSound);
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < myGameManager.levelConstraintRight)
+            {
+                transform.Translate(new Vector2(1, 0));
+                GetComponent<AudioSource>().PlayOneShot(jumpSound);
+            }
         }
-       else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > myGameManager.levelConstraintBottom)
-        {
-            transform.Translate(new Vector2(0, -1));
-            GetComponent<AudioSource>().PlayOneShot(jumpSound);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && transform.position.x > myGameManager.levelConstraintLeft)
-        {
-            transform.Translate(new Vector2(-1, 0));
-            GetComponent<AudioSource>().PlayOneShot(jumpSound);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && transform.position.x < myGameManager.levelConstraintRight)
-        {
-            transform.Translate(new Vector2(1, 0));
-            GetComponent<AudioSource>().PlayOneShot(jumpSound);
-        }
-
     }
 
     void LateUpdate()
@@ -222,7 +224,11 @@ public class Player : MonoBehaviour
 
     void KillPlayer()
     {
-        playerIsAlive = false;
+
+        if (myGameManager.playerLivesRemaining == 1)
+        {
+            playerIsAlive = false;
+        }
 
         //Instantiate(explosionFX, transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;

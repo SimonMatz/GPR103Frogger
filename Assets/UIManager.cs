@@ -9,19 +9,33 @@ public class UIManager : MonoBehaviour
     public GameObject GameOverWindow;
     public GameObject PauseWindow;
 
+    public Player myPlayer;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        myPlayer = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseWindow.SetActive(true);
+            PauseWindow.SetActive(!PauseWindow.activeSelf);
+
+            if (PauseWindow.activeSelf == true)
+            {
+                Time.timeScale = 0;
+                myPlayer.playerCanMove = false;
+                
+            }
+            else
+            {
+                myPlayer.playerCanMove = true;
+                Time.timeScale = 1;
+            }
         }
     }
 
