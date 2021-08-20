@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // game pause with timeScale from: https://gamedevbeginner.com/the-right-way-to-pause-the-game-in-unity/
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseWindow.SetActive(!PauseWindow.activeSelf);
@@ -47,6 +48,7 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
     public void MainMenu()
