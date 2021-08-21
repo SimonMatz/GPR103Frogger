@@ -91,12 +91,13 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(house1Full == true && house2Full == true && house3Full == true && house4Full == true && house5Full == true)
+        if(house3Full == true && house4Full == true)
         {
-            
+            // && house3Full == true && house4Full == true && house5Full == true
             myGameManager.UpdateScore(5000);
-            house2Full = false;
-            myGameManager.gameOver = true;
+            house3Full = false;
+            myGameManager.playerIsAlive = true;
+            myGameManager.GameOver(true);
         }
 
     }
@@ -135,7 +136,7 @@ public class Player : MonoBehaviour
                     myGameManager.UpdateScore(50);
                 }
                 house1Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(0, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(-4, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
                 
 
@@ -149,7 +150,7 @@ public class Player : MonoBehaviour
                     myGameManager.UpdateScore(50);
                 }
                 house2Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(2, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(-2, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
 
             }
@@ -160,7 +161,7 @@ public class Player : MonoBehaviour
                     myGameManager.UpdateScore(50);
                 }
                 house3Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(4, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(0, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
 
             }
@@ -171,7 +172,7 @@ public class Player : MonoBehaviour
                     myGameManager.UpdateScore(50);
                 }
                 house4Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(-2, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(2, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
 
             }
@@ -182,7 +183,7 @@ public class Player : MonoBehaviour
                     myGameManager.UpdateScore(50);
                 }
                 house5Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(-4, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(4, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
 
             }
@@ -190,7 +191,7 @@ public class Player : MonoBehaviour
             if (collision.transform.tag == "Fly")
             {
 
-                myGameManager.UpdateScore(33);
+                myGameManager.UpdateScore(100);
                 Destroy(collision.gameObject);
 
             }

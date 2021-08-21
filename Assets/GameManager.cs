@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text currentLivesUI;
     public TMP_Text timeLeftUI;
     public TMP_Text GameOverMessage;
+    public TMP_Text finalScore;
     public UIManager myUIManager;
 
     [Header("Playable Area")]
@@ -34,6 +35,8 @@ public class GameManager : MonoBehaviour
     public float totalGameTime; //The maximum amount of time or the total time avilable to the player.
     public float gameTimeRemaining; //The current elapsed time
 
+    public Player myPlayer;
+
 
     public void Awake()
     {
@@ -44,7 +47,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        myPlayer = FindObjectOfType<Player>();
+
+
         UpdateScore(-currentScore);
         UpdateLives(-playerTotalLives);
         playerLivesRemaining = playerTotalLives;
@@ -60,12 +65,12 @@ public class GameManager : MonoBehaviour
             
             timeLeftUI.text = Mathf.Round(gameTimeRemaining).ToString();
         }
-        if (gameTimeRemaining > 0 && gameOver == true && playerIsAlive == true)
-        {          
-            UpdateScore(Mathf.Round(gameTimeRemaining) * 20);
-            playerIsAlive = false;          
+        //if (gameTimeRemaining > 0 && gameOver == true && playerIsAlive == true)
+        //{          
+        //    UpdateScore(Mathf.Round(gameTimeRemaining) * 20);
+        //    playerIsAlive = false;          
             
-        }
+        //}
 
         else if(gameTimeRemaining <= 0)
         {
@@ -93,6 +98,10 @@ public class GameManager : MonoBehaviour
 
     public void GameOver(bool win)
     {
+        Time.timeScale = 0;
+        myPlayer.playerCanMove = false;
+        
+
         if (win == true)
         {
             GameOverMessage.text = "You win!";
@@ -102,6 +111,16 @@ public class GameManager : MonoBehaviour
             GameOverMessage.text = "You lose!";
         }
         myUIManager.GameOverWindow.SetActive(true);
+
+        if (gameTimeRemaining > 0 && playerIsAlive == true)
+        {
+            UpdateScore(Mathf.Round(gameTimeRemaining) * 20);
+            playerIsAlive = false;
+
+        }
+
+        finalScore.text = currentScore.ToString();
+
     }
 
 }
