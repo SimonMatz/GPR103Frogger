@@ -12,6 +12,9 @@ TagManager:
   - Home4
   - Home5
   - Fly
+  - Lane1
+  - Lane2
+  - Lane3
   layers:
   - Default
   - TransparentFX
