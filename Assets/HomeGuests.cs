@@ -37,12 +37,12 @@ public class HomeGuests : MonoBehaviour
 
             if (randomNumber == 1 && guest1 == false && myPlayer.house1Full == false)
             {
-                Instantiate(fly, transform.position = new Vector3(-4, 4, 0), Quaternion.identity);
+                Instantiate(fly, transform.position = new Vector3(-3.6f, 4, 0), Quaternion.identity);
                 guest1 = true;
             }
             if (randomNumber == 2 && guest2 == false && myPlayer.house2Full == false)
             {
-                Instantiate(fly, transform.position = new Vector3(-2, 4, 0), Quaternion.identity);
+                Instantiate(fly, transform.position = new Vector3(-1.9f, 4, 0), Quaternion.identity);
                 guest2 = true;
             }
             if (randomNumber == 3 && guest3 == false && myPlayer.house3Full == false)
@@ -52,12 +52,12 @@ public class HomeGuests : MonoBehaviour
             }
             if (randomNumber == 4 && guest4 == false && myPlayer.house4Full == false)
             {
-                Instantiate(fly, transform.position = new Vector3(2, 4, 0), Quaternion.identity);
+                Instantiate(fly, transform.position = new Vector3(1.9f, 4, 0), Quaternion.identity);
                 guest4 = true;
             }
             if (randomNumber == 5 && guest5 == false && myPlayer.house5Full == false)
             {
-                Instantiate(fly, transform.position = new Vector3(4, 4, 0), Quaternion.identity);
+                Instantiate(fly, transform.position = new Vector3(3.6f, 4, 0), Quaternion.identity);
                 guest5 = true;
             }
         }

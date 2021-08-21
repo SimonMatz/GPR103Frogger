@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-//using UnityEditor.ShortcutManagement;
 using UnityEngine;
 
 /// <summary>
@@ -36,9 +35,11 @@ public class Player : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip deathSound;
     public AudioClip splashSound;
+    public AudioClip homeSound;
+    public AudioClip bonusSound;
 
     private GameManager myGameManager; //A reference to the GameManager in the scene.
-    private HomeGuests myHomeGuests; //A reference to the GameManager in the scene.
+    private HomeGuests myHomeGuests; //A reference to HomeGuests in the scene.
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour
         {
             if (collision.transform.GetComponent<Vehicle>() != null)
             {
-                //myGameManager.UpdateLives(1);
+                
                 Instantiate(explosionFX, transform.position, Quaternion.identity);
                 GetComponent<AudioSource>().PlayOneShot(deathSound);
                 KillPlayer();
@@ -134,6 +135,7 @@ public class Player : MonoBehaviour
                 if (house1Full == false)
                 {
                     myGameManager.UpdateScore(50);
+                    GetComponent<AudioSource>().PlayOneShot(homeSound);
                 }
 
                 if (house1Full == true)
@@ -144,7 +146,7 @@ public class Player : MonoBehaviour
                 }
 
                 house1Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(-4, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(-3.6f, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
                 
 
@@ -155,6 +157,7 @@ public class Player : MonoBehaviour
                 if (house2Full == false)
                 {
                     myGameManager.UpdateScore(50);
+                    GetComponent<AudioSource>().PlayOneShot(homeSound);
                 }
 
                 if (house2Full == true)
@@ -165,7 +168,7 @@ public class Player : MonoBehaviour
                 }
 
                 house2Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(-2, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(-1.9f, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
 
             }
@@ -175,6 +178,7 @@ public class Player : MonoBehaviour
                 if (house3Full == false)
                 {
                     myGameManager.UpdateScore(50);
+                    GetComponent<AudioSource>().PlayOneShot(homeSound);
                 }
 
                 if (house3Full == true)
@@ -194,6 +198,7 @@ public class Player : MonoBehaviour
                 if (house4Full == false)
                 {
                     myGameManager.UpdateScore(50);
+                    GetComponent<AudioSource>().PlayOneShot(homeSound);
                 }
 
                 if (house4Full == true)
@@ -204,7 +209,7 @@ public class Player : MonoBehaviour
                 }
 
                 house4Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(2, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(1.9f, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
 
             }
@@ -213,6 +218,7 @@ public class Player : MonoBehaviour
                 if (house5Full == false)
                 {
                     myGameManager.UpdateScore(50);
+                    GetComponent<AudioSource>().PlayOneShot(homeSound);
                 }
 
                 if (house5Full == true)
@@ -223,7 +229,7 @@ public class Player : MonoBehaviour
                 }
 
                 house5Full = true;
-                Instantiate(frogInHome, transform.position = new Vector3(4, 4, 0), Quaternion.identity);
+                Instantiate(frogInHome, transform.position = new Vector3(3.6f, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
 
             }
@@ -233,6 +239,7 @@ public class Player : MonoBehaviour
 
                 myGameManager.UpdateScore(100);
                 Destroy(collision.gameObject);
+                GetComponent<AudioSource>().PlayOneShot(bonusSound);
 
             }
 

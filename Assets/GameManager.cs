@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("Scoring")]
     public float currentScore = 0; //The current score in this round.
     //private float highScore; //The highest score achieved either in this session or over the lifetime of the game.
-    public int playerTotalLives = 10; //Players total possible lives.
+    public int playerTotalLives; //Players total possible lives.
     public int playerLivesRemaining; //PLayers actual lives remaining.
     public bool gameOver = false;
     public bool playerIsAlive = true;
@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerTotalLives = 3;
         totalGameTime = 60;
 
         myPlayer = FindObjectOfType<Player>();
