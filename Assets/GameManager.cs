@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        totalGameTime = 60;
+
         myPlayer = FindObjectOfType<Player>();
 
         highScoreUI.text = PlayerPrefs.GetFloat("HighScore", 0).ToString();

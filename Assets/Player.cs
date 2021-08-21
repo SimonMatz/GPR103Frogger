@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
             {
                 transform.Translate(new Vector2(0, 1));
                 GetComponent<AudioSource>().PlayOneShot(jumpSound);
-                myGameManager.UpdateScore(0);
+                myGameManager.UpdateScore(10);
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow) && transform.position.y > myGameManager.levelConstraintBottom)
             {
@@ -91,10 +91,10 @@ public class Player : MonoBehaviour
             }
         }
 
-        if(house3Full == true && house4Full == true)
+        if(house1Full == true && house2Full == true && house3Full == true && house4Full == true && house5Full == true)
         {
-            // && house3Full == true && house4Full == true && house5Full == true
-            myGameManager.UpdateScore(5000);
+            
+            myGameManager.UpdateScore(1000);
             house3Full = false;
             myGameManager.playerIsAlive = true;
             myGameManager.GameOver(true);
@@ -130,11 +130,19 @@ public class Player : MonoBehaviour
 
             else if (collision.transform.tag == "Home")
             {
-                
+
                 if (house1Full == false)
                 {
                     myGameManager.UpdateScore(50);
                 }
+
+                if (house1Full == true)
+                {
+                    Instantiate(explosionFX, transform.position, Quaternion.identity);
+                    GetComponent<AudioSource>().PlayOneShot(deathSound);
+                    KillPlayer();
+                }
+
                 house1Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(-4, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
@@ -144,11 +152,18 @@ public class Player : MonoBehaviour
             else if (collision.transform.tag == "Home2")
             {
                 
-
                 if (house2Full == false)
                 {
                     myGameManager.UpdateScore(50);
                 }
+
+                if (house2Full == true)
+                {
+                    Instantiate(explosionFX, transform.position, Quaternion.identity);
+                    GetComponent<AudioSource>().PlayOneShot(deathSound);
+                    KillPlayer();
+                }
+
                 house2Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(-2, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
@@ -156,10 +171,19 @@ public class Player : MonoBehaviour
             }
             else if (collision.transform.tag == "Home3")
             {               
+
                 if (house3Full == false)
                 {
                     myGameManager.UpdateScore(50);
                 }
+
+                if (house3Full == true)
+                {
+                    Instantiate(explosionFX, transform.position, Quaternion.identity);
+                    GetComponent<AudioSource>().PlayOneShot(deathSound);
+                    KillPlayer();
+                }
+
                 house3Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(0, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
@@ -171,6 +195,14 @@ public class Player : MonoBehaviour
                 {
                     myGameManager.UpdateScore(50);
                 }
+
+                if (house4Full == true)
+                {
+                    Instantiate(explosionFX, transform.position, Quaternion.identity);
+                    GetComponent<AudioSource>().PlayOneShot(deathSound);
+                    KillPlayer();
+                }
+
                 house4Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(2, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
@@ -182,6 +214,14 @@ public class Player : MonoBehaviour
                 {
                     myGameManager.UpdateScore(50);
                 }
+
+                if (house5Full == true)
+                {
+                    Instantiate(explosionFX, transform.position, Quaternion.identity);
+                    GetComponent<AudioSource>().PlayOneShot(deathSound);
+                    KillPlayer();
+                }
+
                 house5Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(4, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
@@ -233,7 +273,7 @@ public class Player : MonoBehaviour
 
         //Instantiate(explosionFX, transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;
-        transform.position = new Vector3(-0, -4, 0);
+        transform.position = new Vector3(0, -4, 0);
         GetComponent<SpriteRenderer>().enabled = true;
         myGameManager.UpdateLives(1);
 
