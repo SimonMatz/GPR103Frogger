@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 {
     [Header("Scoring")]
     public float currentScore = 0; //The current score in this round.
-    public int highScore = 0; //The highest score achieved either in this session or over the lifetime of the game.
+    //private float highScore; //The highest score achieved either in this session or over the lifetime of the game.
     public int playerTotalLives = 10; //Players total possible lives.
     public int playerLivesRemaining; //PLayers actual lives remaining.
     public bool gameOver = false;
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text timeLeftUI;
     public TMP_Text GameOverMessage;
     public TMP_Text finalScore;
+    public TMP_Text highScoreUI;
     public UIManager myUIManager;
 
     [Header("Playable Area")]
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     public float gameTimeRemaining; //The current elapsed time
 
     public Player myPlayer;
+    private bool timeWasUp = false;
 
 
     public void Awake()
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
     {
         myPlayer = FindObjectOfType<Player>();
 
+        highScoreUI.text = PlayerPrefs.GetFloat("HighScore", 0).ToString();
 
         UpdateScore(-currentScore);
         UpdateLives(-playerTotalLives);
@@ -69,22 +72,33 @@ public class GameManager : MonoBehaviour
         //{          
         //    UpdateScore(Mathf.Round(gameTimeRemaining) * 20);
         //    playerIsAlive = false;          
-            
+
         //}
 
-        else if(gameTimeRemaining <= 0)
+        else if (gameTimeRemaining <= 0 && timeWasUp == false)
         {
             playerIsAlive = false;
             timeLeftUI.text = 0.ToString();
+            GameOver(false);
+            timeWasUp = true;
         }
     }
+
+   
 
     public void UpdateScore(float scoreAmount)
     {
         currentScore += scoreAmount;
         currentScoreUI.text = currentScore.ToString();
-        
+
+        //followed high score tutorial from https://www.youtube.com/watch?v=vZU51tbgMXk
+        if (currentScore > PlayerPrefs.GetFloat("HighScore", 0))
+        {
+            PlayerPrefs.SetFloat("HighScore", currentScore);
+            highScoreUI.text = currentScore.ToString();
+        }        
     }
+
     public void UpdateLives(int livesAmount)
     {
         playerLivesRemaining -= livesAmount;
