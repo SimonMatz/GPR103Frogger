@@ -56,5 +56,10 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void RulesMenu()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 
 }

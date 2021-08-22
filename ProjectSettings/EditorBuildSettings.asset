@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FroggerExampleScene.unity
     guid: a6cefe9d80d3a5d4484a4e159f360d31
+  - enabled: 1
+    path: Assets/Scenes/RulesMenu.unity
+    guid: 1e47b5a897e83a24986f902b22c4ea47
   m_configObjects: {}
