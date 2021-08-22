@@ -155,9 +155,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.3
+  speed: 1.4
   startingPosition: {x: 5, y: -3}
-  endPosition: {x: -5, y: -3}
+  endPosition: {x: -10, y: -3}
 --- !u!212 &2410955
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -476,7 +476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: -430}
+  m_AnchoredPosition: {x: -300, y: -429}
   m_SizeDelta: {x: 145, y: 46.311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &59950466
@@ -562,7 +562,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 36.466652, w: 0}
+  m_margin: {x: 0, y: 0.000017141327, z: 36.466652, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -694,7 +694,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203.8, y: 425.5}
+  m_AnchoredPosition: {x: 240, y: 427}
   m_SizeDelta: {x: 145, y: 46.311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &93466256
@@ -909,9 +909,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.3
-  startingPosition: {x: 10.5, y: -3}
-  endPosition: {x: -7.5, y: -3}
+  speed: 1.4
+  startingPosition: {x: 14, y: -3}
+  endPosition: {x: -14, y: -3}
 --- !u!212 &176994144
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1070,8 +1070,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -109, y: 423.66}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -185, y: 422}
+  m_SizeDelta: {x: 42.294, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191358808
 MonoBehaviour:
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -98.72373, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2480,7 +2480,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 443551384}
   m_LocalRotation: {x: -0.00026213098, y: 0.04605097, z: 0.0056860596, w: 0.99892294}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000000027112186}
+  m_LocalPosition: {x: 0, y: 0, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1970672461}
@@ -2488,7 +2488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.06, y: 5.279, z: 0.65}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -180, y: -430}
+  m_AnchoredPosition: {x: -191.9, y: -429}
   m_SizeDelta: {x: 145, y: 46.311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443551386
@@ -2646,9 +2646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: -1
-  speed: 1.1
-  startingPosition: {x: -5, y: -2}
-  endPosition: {x: 5, y: -2}
+  speed: 1.2
+  startingPosition: {x: -14, y: -2}
+  endPosition: {x: 14, y: -2}
 --- !u!212 &457878511
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4052,9 +4052,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: -1
-  speed: 1.1
-  startingPosition: {x: -5, y: -2}
-  endPosition: {x: 5, y: -2}
+  speed: 1.2
+  startingPosition: {x: -11, y: -2}
+  endPosition: {x: 11, y: -2}
 --- !u!212 &818621054
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4492,9 +4492,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.2
-  startingPosition: {x: 5, y: -1}
-  endPosition: {x: -5, y: -1}
+  speed: 1.3
+  startingPosition: {x: 11, y: -1}
+  endPosition: {x: -11, y: -1}
 --- !u!212 &898643932
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4536,7 +4536,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -874610164145462703, guid: af021b7ad1e534d47b01e355ff46aba5,
+  m_Sprite: {fileID: 2892563242333162937, guid: af021b7ad1e534d47b01e355ff46aba5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -5194,9 +5194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.3
-  startingPosition: {x: 7.5, y: -3}
-  endPosition: {x: -6.5, y: -3}
+  speed: 1.4
+  startingPosition: {x: 8, y: -3}
+  endPosition: {x: -8, y: -3}
 --- !u!212 &943104051
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5322,9 +5322,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: -1
-  speed: 1.1
+  speed: 1.2
   startingPosition: {x: -5, y: -2}
-  endPosition: {x: 5, y: -2}
+  endPosition: {x: 10, y: -2}
 --- !u!212 &950940470
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5366,7 +5366,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2892563242333162937, guid: af021b7ad1e534d47b01e355ff46aba5,
+  m_Sprite: {fileID: -874610164145462703, guid: af021b7ad1e534d47b01e355ff46aba5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6327,7 +6327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 90, y: -430}
+  m_AnchoredPosition: {x: 301, y: -430}
   m_SizeDelta: {x: 145, y: 46.311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345157025
@@ -6413,7 +6413,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 36.466652, w: 0}
+  m_margin: {x: 0, y: 0, z: 29.949623, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6759,9 +6759,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.2
-  startingPosition: {x: 7, y: -1}
-  endPosition: {x: -7, y: -1}
+  speed: 1.3
+  startingPosition: {x: 8, y: -1}
+  endPosition: {x: -8, y: -1}
 --- !u!212 &1406047516
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6889,7 +6889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 373.3, y: 425.5}
+  m_AnchoredPosition: {x: 350, y: 425.5}
   m_SizeDelta: {x: 239.45, y: 46.311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1410487989
@@ -6975,7 +6975,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 36.466652, w: 0}
+  m_margin: {x: 52.918907, y: 0, z: 36.466652, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7881,8 +7881,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: -1
-  speed: 1.1
-  startingPosition: {x: -7, y: -2}
+  speed: 1.2
+  startingPosition: {x: -8, y: -2}
   endPosition: {x: 8, y: -2}
 --- !u!212 &1601618636
 SpriteRenderer:
@@ -8386,9 +8386,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.2
+  speed: 1.3
   startingPosition: {x: 5, y: -1}
-  endPosition: {x: -5, y: -1}
+  endPosition: {x: -10, y: -1}
 --- !u!212 &1695980598
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8757,9 +8757,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.3
-  startingPosition: {x: 9, y: -3}
-  endPosition: {x: -9, y: -3}
+  speed: 1.4
+  startingPosition: {x: 11, y: -3}
+  endPosition: {x: -11, y: -3}
 --- !u!212 &1752793267
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9649,7 +9649,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938042876}
   m_LocalRotation: {x: -0.00026213098, y: 0.04605097, z: 0.0056860596, w: 0.99892294}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000000027112186}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1970672461}
@@ -9657,7 +9657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -0.06, y: 5.279, z: 0.65}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203.8, y: -430}
+  m_AnchoredPosition: {x: 415, y: -430}
   m_SizeDelta: {x: 145, y: 46.311}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938042878
@@ -10141,9 +10141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDirection: 1
-  speed: 1.2
-  startingPosition: {x: 5, y: -1}
-  endPosition: {x: -5, y: -1}
+  speed: 1.3
+  startingPosition: {x: 14, y: -1}
+  endPosition: {x: -14, y: -1}
 --- !u!212 &2108114417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10185,7 +10185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -874610164145462703, guid: af021b7ad1e534d47b01e355ff46aba5,
+  m_Sprite: {fileID: -6639951047721724130, guid: af021b7ad1e534d47b01e355ff46aba5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
