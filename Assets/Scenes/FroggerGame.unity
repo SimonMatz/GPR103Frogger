@@ -884,7 +884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1.1
-  startingPosition: {x: 5, y: 3}
+  startingPosition: {x: 13, y: 3}
   endPosition: {x: -5, y: -3}
 --- !u!61 &144353274
 BoxCollider2D:
@@ -1230,8 +1230,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294901987
+  m_fontColor: {r: 0.8894367, g: 0, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1528,8 +1528,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1
-  startingPosition: {x: 8, y: 1}
-  endPosition: {x: -5, y: -3}
+  startingPosition: {x: 9, y: 1}
+  endPosition: {x: -9, y: -3}
 --- !u!61 &273748434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1656,8 +1656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: -1
   speed: 1.2
-  startingPosition: {x: -9, y: 2}
-  endPosition: {x: 5, y: -3}
+  startingPosition: {x: -8, y: 2}
+  endPosition: {x: 8, y: -3}
 --- !u!61 &279596067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2199,7 +2199,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back to Menu
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2648,8 +2648,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278192127
+  m_fontColor: {r: 1, g: 0.028497314, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2966,7 +2966,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dfcac34b0eb192341898e42c9c424218, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3344,8 +3344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: -1
   speed: 1.2
-  startingPosition: {x: -5, y: 2}
-  endPosition: {x: 5, y: -3}
+  startingPosition: {x: -16, y: 2}
+  endPosition: {x: 16, y: -3}
 --- !u!61 &678755672
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3688,8 +3688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1
-  startingPosition: {x: 5, y: 1}
-  endPosition: {x: -5, y: -3}
+  startingPosition: {x: 16, y: 1}
+  endPosition: {x: -16, y: -3}
 --- !u!61 &727795160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3816,8 +3816,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1
-  startingPosition: {x: 7, y: 1}
-  endPosition: {x: -5, y: -3}
+  startingPosition: {x: 15, y: 1}
+  endPosition: {x: -15, y: -3}
 --- !u!61 &748594743
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4107,7 +4107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 145, y: 25}
+  m_AnchoredPosition: {x: 156, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &753117156
@@ -4241,7 +4241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -54.999992, y: 25}
+  m_AnchoredPosition: {x: -44, y: 25}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775238427
@@ -4398,7 +4398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back to Menu
+  m_text: Main Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5420,7 +5420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1.1
-  startingPosition: {x: 5, y: 3}
+  startingPosition: {x: 7, y: 3}
   endPosition: {x: -5, y: -3}
 --- !u!61 &919388359
 BoxCollider2D:
@@ -6501,7 +6501,7 @@ MonoBehaviour:
   moveDirection: -1
   speed: 1.2
   startingPosition: {x: -5, y: 2}
-  endPosition: {x: 5, y: -3}
+  endPosition: {x: 10, y: -3}
 --- !u!61 &1174025286
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6628,8 +6628,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: -1
   speed: 1.2
-  startingPosition: {x: -5, y: 2}
-  endPosition: {x: 5, y: -3}
+  startingPosition: {x: -11, y: 2}
+  endPosition: {x: 11, y: -3}
 --- !u!61 &1198932481
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6752,8 +6752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053bd9d528a5bd9488268690544aa1b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fly: {fileID: 7984463670974903377, guid: 299bfc64b6d00e746aa848262dc8b655, type: 3}
-  crocodile: {fileID: 0}
+  worm: {fileID: 7984463670974903377, guid: 299bfc64b6d00e746aa848262dc8b655, type: 3}
   myPlayer: {fileID: 0}
   guest1: 0
   guest2: 0
@@ -7402,8 +7401,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255361
+  m_fontColor: {r: 0.0057804585, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8600,8 +8599,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1
-  startingPosition: {x: 5, y: 1}
-  endPosition: {x: -5, y: -3}
+  startingPosition: {x: 6, y: 1}
+  endPosition: {x: -11, y: -3}
 --- !u!212 &1665284698
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9424,8 +9423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: -1
   speed: 1.2
-  startingPosition: {x: -5, y: 2}
-  endPosition: {x: 5, y: -3}
+  startingPosition: {x: -14, y: 2}
+  endPosition: {x: 14, y: -3}
 --- !u!61 &1777493072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9552,7 +9551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1.1
-  startingPosition: {x: 5, y: 3}
+  startingPosition: {x: 11, y: 3}
   endPosition: {x: -5, y: -3}
 --- !u!61 &1787191052
 BoxCollider2D:
@@ -9876,8 +9875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDirection: 1
   speed: 1
-  startingPosition: {x: 11, y: 1}
-  endPosition: {x: -5, y: -3}
+  startingPosition: {x: 12, y: 1}
+  endPosition: {x: -12, y: -3}
 --- !u!61 &1928326635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10170,8 +10169,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
