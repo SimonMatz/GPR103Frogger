@@ -12,6 +12,7 @@ public class Platform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //set transform.position to starting position
         transform.position = startingPosition;
     }
 
@@ -20,6 +21,7 @@ public class Platform : MonoBehaviour
     {
         transform.Translate(Vector2.left * Time.deltaTime * speed * moveDirection);
 
+        //to move platform back to starting postion once reached end position
         if ((transform.position.x * moveDirection) < (endPosition.x * moveDirection))
         {
             transform.position = startingPosition;

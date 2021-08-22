@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-/// <summary>
-/// This script is to be attached to a GameObject called GameManager in the scene. It is to be used to manager the settings and overarching gameplay loop.
-/// </summary>
 public class GameManager : MonoBehaviour
 {
     [Header("Scoring")]
     public float currentScore = 0; //The current score in this round.
-    //private float highScore; //The highest score achieved either in this session or over the lifetime of the game.
+    //private float highScore; ---- Removed this variable because using PlayerPrefs to store highscore ---
     public int playerTotalLives; //Players total possible lives.
     public int playerLivesRemaining; //PLayers actual lives remaining.
     public bool gameOver = false;
     public bool playerIsAlive = true;
 
+    // variables for UI elements
     [Header("UI")]
     public TMP_Text currentScoreUI;
     public TMP_Text currentLivesUI;
@@ -42,20 +40,24 @@ public class GameManager : MonoBehaviour
 
     public void Awake()
     {
+        //storing reference to UImanager in this variable
         myUIManager = FindObjectOfType<UIManager>();
     }
-
 
     // Start is called before the first frame update
     void Start()
     {
+        //setting the lives and time available
         playerTotalLives = 3;
         totalGameTime = 60;
 
+        //storing reference to Player in this variable
         myPlayer = FindObjectOfType<Player>();
 
+        //initialising highscore
         highScoreUI.text = PlayerPrefs.GetFloat("HighScore", 0).ToString();
 
+        //resetting&initialising current score and lives remaining
         UpdateScore(-currentScore);
         UpdateLives(-playerTotalLives);
         playerLivesRemaining = playerTotalLives;
@@ -67,34 +69,26 @@ public class GameManager : MonoBehaviour
     {
         if (gameTimeRemaining > 0)
         {
-           gameTimeRemaining -= Time.deltaTime;
-            
-            timeLeftUI.text = Mathf.Round(gameTimeRemaining).ToString();
+           gameTimeRemaining -= Time.deltaTime;          
+           timeLeftUI.text = Mathf.Round(gameTimeRemaining).ToString();
         }
-        //if (gameTimeRemaining > 0 && gameOver == true && playerIsAlive == true)
-        //{          
-        //    UpdateScore(Mathf.Round(gameTimeRemaining) * 20);
-        //    playerIsAlive = false;          
-
-        //}
-
+        
         else if (gameTimeRemaining <= 0 && timeWasUp == false)
         {
             playerIsAlive = false;
             timeLeftUI.text = 0.ToString();
             GameOver(false);
+            //since loop is in update, need to use this variable so the loop only runs once
             timeWasUp = true;
         }
     }
 
-   
-
-    public void UpdateScore(float scoreAmount)
+    public void UpdateScore(float scoreAmount)   //Function to update scores
     {
         currentScore += scoreAmount;
         currentScoreUI.text = currentScore.ToString();
 
-        //followed high score tutorial from https://www.youtube.com/watch?v=vZU51tbgMXk
+        //followed highscore tutorial from https://www.youtube.com/watch?v=vZU51tbgMXk
         if (currentScore > PlayerPrefs.GetFloat("HighScore", 0))
         {
             PlayerPrefs.SetFloat("HighScore", currentScore);
@@ -102,7 +96,7 @@ public class GameManager : MonoBehaviour
         }        
     }
 
-    public void UpdateLives(int livesAmount)
+    public void UpdateLives(int livesAmount)     //Function to update lives
     {
         playerLivesRemaining -= livesAmount;
         currentLivesUI.text = playerLivesRemaining.ToString();
@@ -113,12 +107,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver(bool win)
+    public void GameOver(bool win)  //stops game, sets win/lose message, opens game over window and calcs extra points for time left
     {
+        //to pause game
         Time.timeScale = 0;
         myPlayer.playerCanMove = false;
         
-
         if (win == true)
         {
             GameOverMessage.text = "You win!";
@@ -137,7 +131,5 @@ public class GameManager : MonoBehaviour
         }
 
         finalScore.text = currentScore.ToString();
-
     }
-
 }

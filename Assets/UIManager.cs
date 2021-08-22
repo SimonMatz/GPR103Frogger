@@ -5,16 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-
     public GameObject GameOverWindow;
     public GameObject PauseWindow;
-
-    public Player myPlayer;
-
+    public Player myPlayer; //A reference to Player in the scene.
 
     // Start is called before the first frame update
     void Start()
     {
+        //storing reference to Player in this variable
         myPlayer = FindObjectOfType<Player>();
     }
 
@@ -48,6 +46,7 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
+        //setting timeScale back to one so game is not frozen after restart
         Time.timeScale = 1;
     }
 
@@ -60,6 +59,5 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
-
 
 }

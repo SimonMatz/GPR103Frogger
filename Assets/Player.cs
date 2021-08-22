@@ -11,13 +11,10 @@ public class Player : MonoBehaviour
    
     public int playerTotalLives; //Players total possible lives.
     public int playerLivesRemaining; //PLayers actual lives remaining.
-   
     public bool playerIsAlive = true; //Is the player currently alive?
     public bool playerCanMove = false; //Can the player currently move?
-
-    public bool isOnPlatform = false;
-    public bool isInWater = false;
-    
+    public bool isOnPlatform = false; //is the player on a platform?
+    public bool isInWater = false;//is the player in the water?
 
     //variable to remember if house is already full
     public bool house1Full = false;
@@ -26,7 +23,7 @@ public class Player : MonoBehaviour
     public bool house4Full = false;
     public bool house5Full = false;
 
-    //instantiate
+    //instantiate objects
     public GameObject frogInHome;
     public GameObject explosionFX;
     public GameObject waterSplashFX;
@@ -51,8 +48,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //player movement is controlled here
         if (playerCanMove == true)
         {
+            //when key is pressed - move player by 1 in according direction and play jump sound
             if (Input.GetKeyDown(KeyCode.UpArrow) && transform.position.y < myGameManager.levelConstraintTop)
             {
                 transform.Translate(new Vector2(0, 1));
@@ -81,63 +80,62 @@ public class Player : MonoBehaviour
     {
         if (playerIsAlive == true)
         {
-
+            //player dies when he's not on platform
             if (isInWater == true && isOnPlatform == false)
             {
                 Instantiate(waterSplashFX, transform.position, Quaternion.identity);
                 GetComponent<AudioSource>().PlayOneShot(splashSound);
-                KillPlayer();             
+                KillPlayer();
+                //preventing loop from running again
                 isInWater = false;
                 isOnPlatform = false;
             }
         }
 
+        //checks if all 5 houses are full to win the game
         if(house1Full == true && house2Full == true && house3Full == true && house4Full == true && house5Full == true)
-        {
-            
+        {          
             myGameManager.UpdateScore(1000);
+            //setting one variable back to false to prevent loop from running again
             house3Full = false;
             myGameManager.playerIsAlive = true;
             myGameManager.GameOver(true);
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(playerIsAlive == true)
         {
+            //kill player if he hits vehicle
             if (collision.transform.GetComponent<Vehicle>() != null)
-            {
-                
+            {              
                 Instantiate(explosionFX, transform.position, Quaternion.identity);
                 GetComponent<AudioSource>().PlayOneShot(deathSound);
-                KillPlayer();
-                
+                KillPlayer();              
             }
+            //checks if player is on platform
             else if (collision.transform.GetComponent<Platform>() != null)
             {
+                //sets platform as parent to move player with the platform
                 transform.SetParent(collision.transform);
                 isOnPlatform = true;
-                
-
             }
+            //checks if player is in water
             else if (collision.transform.tag == "Water")
             {              
                 isInWater = true;
-                
-
             }
-
+            //checks if player has reached home1
             else if (collision.transform.tag == "Home")
             {
-
+                //if player hasn't filled this home yet give the points
                 if (house1Full == false)
                 {
                     myGameManager.UpdateScore(50);
                     GetComponent<AudioSource>().PlayOneShot(homeSound);
                 }
-
+                //if home is already full, no points and kill player
                 if (house1Full == true)
                 {
                     Instantiate(explosionFX, transform.position, Quaternion.identity);
@@ -147,13 +145,12 @@ public class Player : MonoBehaviour
 
                 house1Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(-3.6f, 4, 0), Quaternion.identity);
-                transform.position = new Vector3(0, -4, 0);
-                
-
+                //move player back to starting position
+                transform.position = new Vector3(0, -4, 0);              
             }
+            //checks if player has reached home2
             else if (collision.transform.tag == "Home2")
-            {
-                
+            {              
                 if (house2Full == false)
                 {
                     myGameManager.UpdateScore(50);
@@ -170,8 +167,8 @@ public class Player : MonoBehaviour
                 house2Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(-1.9f, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
-
             }
+            //checks if player has reached home3
             else if (collision.transform.tag == "Home3")
             {               
 
@@ -187,12 +184,11 @@ public class Player : MonoBehaviour
                     GetComponent<AudioSource>().PlayOneShot(deathSound);
                     KillPlayer();
                 }
-
                 house3Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(0, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
-
             }
+            //checks if player has reached home4
             else if (collision.transform.tag == "Home4")
             {              
                 if (house4Full == false)
@@ -207,12 +203,11 @@ public class Player : MonoBehaviour
                     GetComponent<AudioSource>().PlayOneShot(deathSound);
                     KillPlayer();
                 }
-
                 house4Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(1.9f, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
-
             }
+            //checks if player has reached home5
             else if (collision.transform.tag == "Home5")
             {              
                 if (house5Full == false)
@@ -227,35 +222,29 @@ public class Player : MonoBehaviour
                     GetComponent<AudioSource>().PlayOneShot(deathSound);
                     KillPlayer();
                 }
-
                 house5Full = true;
                 Instantiate(frogInHome, transform.position = new Vector3(3.6f, 4, 0), Quaternion.identity);
                 transform.position = new Vector3(0, -4, 0);
-
             }
-
+            //checks if player collected bonus points in home
             if (collision.transform.tag == "Fly")
             {
-
                 myGameManager.UpdateScore(100);
+                //destroy object when player hits
                 Destroy(collision.gameObject);
                 GetComponent<AudioSource>().PlayOneShot(bonusSound);
-
             }
-
-
         }
-
     }
    
 
     void OnTriggerExit2D(Collider2D collision)
     {
         if (playerIsAlive == true)
-        {
-          
+        {         
             if (collision.transform.GetComponent<Platform>() != null)
             {
+                //remove platform as parent to move player free again
                 transform.SetParent(null);
                 isOnPlatform = false;
             }
@@ -264,21 +253,17 @@ public class Player : MonoBehaviour
             {
                 isInWater = false;
             }
-            
-
         }
-
     }
 
-    void KillPlayer()
+    void KillPlayer() // kills player, moves player back to start position and updates lives. When no loves left, calls game over screen
     {
-
         if (myGameManager.playerLivesRemaining == 1)
         {
             playerIsAlive = false;
         }
 
-        //Instantiate(explosionFX, transform.position, Quaternion.identity);
+        //disable and enable sprite renderer and move back to start
         GetComponent<SpriteRenderer>().enabled = false;
         transform.position = new Vector3(0, -4, 0);
         GetComponent<SpriteRenderer>().enabled = true;
@@ -289,5 +274,4 @@ public class Player : MonoBehaviour
             myGameManager.GameOver(false);
         }
     }
-
 }
